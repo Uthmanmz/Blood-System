@@ -3,14 +3,14 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter } from 'react-router';
 import './index.css'
 import App from './App.jsx'
-import DemoDataErrorBoundary from './components/DemoDataErrorBoundary.jsx'
+import ErrorBoundary from './components/ErrorBoundary.jsx'
 
 createRoot(document.getElementById('root')).render(
    <StrictMode>
-    <DemoDataErrorBoundary>
+    <ErrorBoundary>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </DemoDataErrorBoundary>
+    </ErrorBoundary>
   </StrictMode>,
 )

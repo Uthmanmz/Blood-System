@@ -48,6 +48,13 @@ export function changeOrganisationHospitalStatus(
 }
 
 
+export function getHospitalAdmins() {
+  return apiGet(
+    '/hospital-admins/list.php'
+  );
+}
+
+
 export function createHospitalAdmin(data) {
   return apiPost(
     '/hospital-admins/create.php',

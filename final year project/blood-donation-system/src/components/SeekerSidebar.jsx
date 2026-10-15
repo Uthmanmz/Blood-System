@@ -8,6 +8,14 @@ import {
 } from 'react-router';
 
 import {
+  Bell,
+  Droplet,
+  LayoutDashboard,
+  PackageSearch,
+  Search,
+} from 'lucide-react';
+
+import {
   apiGet,
 } from '../services/api';
 
@@ -86,23 +94,34 @@ function SeekerSidebar() {
       <nav className="sidebar-menu">
 
         <NavLink to="/seeker-dashboard">
-          Dashboard
+          <LayoutDashboard
+            size={18}
+            aria-hidden="true"
+          />
+          <span>Dashboard</span>
         </NavLink>
 
-        <NavLink to="/find-blood">
-          Find Blood
+        <NavLink to="/seeker-find-blood">
+          <Search size={18} aria-hidden="true" />
+          <span>Find Blood</span>
         </NavLink>
 
         <NavLink to="/request-blood">
-          Request Blood
+          <Droplet size={18} aria-hidden="true" />
+          <span>Request Blood</span>
         </NavLink>
 
         <NavLink to="/track-request">
-          Track Requests
+          <PackageSearch
+            size={18}
+            aria-hidden="true"
+          />
+          <span>Track Requests</span>
         </NavLink>
 
         <NavLink to="/seeker-notifications">
-          Notifications
+          <Bell size={18} aria-hidden="true" />
+          <span>Notifications</span>
 
           {unread > 0 && (
             <span className="notification-unread-badge">

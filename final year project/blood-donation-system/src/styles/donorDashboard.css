@@ -39,10 +39,22 @@
 }
 
 .sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
   text-decoration: none;
   color: #dddddd;
   padding: 12px;
   border-radius: 6px;
+}
+
+.sidebar-menu a svg {
+  flex: 0 0 auto;
+  opacity: 0.85;
+}
+
+.sidebar-menu a:hover svg {
+  opacity: 1;
 }
 
 .sidebar-menu a:hover {

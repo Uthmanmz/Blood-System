@@ -30,6 +30,7 @@ pnpm-debug.log*
 
 # ---- Editors / OS ----
 .vscode/
+.claude/
 .idea/
 .DS_Store
 Thumbs.db

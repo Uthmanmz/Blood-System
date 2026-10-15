@@ -228,4 +228,74 @@
 .campaign-section p { max-width: 48rem; margin: 1rem auto; line-height: 1.7; }
 .campaign-section a { color: #991b1b; font-weight: 700; }
 
+/* ---- Interactive motion ---- */
+
+.hero-buttons a,
+.cta-buttons a,
+.home-action-panel a {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background-color 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.hero-buttons a:hover,
+.cta-buttons a:hover,
+.home-action-panel a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(198, 40, 40, 0.18);
+}
+
+.hero-buttons a:active,
+.cta-buttons a:active,
+.home-action-panel a:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(198, 40, 40, 0.15);
+}
+
+.donor-btn:hover { background-color: #a71d1d; }
+.find-btn:hover { background-color: #fff1f1; }
+.cta-donor:hover { background-color: #ffe9e9; }
+.cta-request:hover { background-color: rgba(255, 255, 255, 0.14); }
+
+.information-grid article {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.information-grid article:hover {
+  transform: translateY(-4px);
+  border-color: #fca5a5;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
+}
+
+@keyframes blood-drop-pulse {
+  0%, 100% { transform: rotate(-45deg) scale(1); }
+  50% { transform: rotate(-45deg) scale(1.06); }
+}
+
+.blood-drop { animation: blood-drop-pulse 3s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-buttons a,
+  .cta-buttons a,
+  .home-action-panel a,
+  .information-grid article,
+  .blood-drop {
+    transition: none;
+    animation: none;
+  }
+
+  .hero-buttons a:hover,
+  .cta-buttons a:hover,
+  .home-action-panel a:hover,
+  .information-grid article:hover {
+    transform: none;
+  }
+}
+
 @media (max-width: 750px) { .information-grid { grid-template-columns: 1fr; padding-block: 2.5rem; } }

@@ -1,6 +1,16 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router';
 
+import {
+  BadgeCheck,
+  Bell,
+  CalendarDays,
+  ClipboardList,
+  LayoutDashboard,
+  Package,
+  Users,
+} from 'lucide-react';
+
 import LogoutButton from './LogoutButton';
 
 import {
@@ -16,26 +26,31 @@ const links = [
     '/personnel-donors',
     'Manage Donors',
     PERSONNEL_PERMISSIONS.DONORS,
+    Users,
   ],
   [
     '/personnel-inventory',
     'Blood Inventory',
     PERSONNEL_PERMISSIONS.INVENTORY,
+    Package,
   ],
   [
     '/personnel-requests',
     'Blood Requests',
     PERSONNEL_PERMISSIONS.REQUESTS,
+    ClipboardList,
   ],
   [
     '/personnel-appointments',
     'Appointments',
     PERSONNEL_PERMISSIONS.APPOINTMENTS,
+    CalendarDays,
   ],
   [
     '/personnel-completed-donations',
     'Completed Donations',
     PERSONNEL_PERMISSIONS.DONATIONS,
+    BadgeCheck,
   ],
 ];
 
@@ -85,16 +100,21 @@ function PersonnelSidebar() {
         aria-label="Personnel navigation"
       >
         <NavLink to="/personnel-dashboard">
-          Dashboard
+          <LayoutDashboard
+            size={18}
+            aria-hidden="true"
+          />
+          <span>Dashboard</span>
         </NavLink>
 
         {links
           .filter(([, , permission]) =>
             permissions.includes(permission)
           )
-          .map(([to, label]) => (
+          .map(([to, label, , Icon]) => (
             <NavLink key={to} to={to}>
-              {label}
+              <Icon size={18} aria-hidden="true" />
+              <span>{label}</span>
             </NavLink>
           ))}
 
@@ -102,7 +122,8 @@ function PersonnelSidebar() {
           PERSONNEL_PERMISSIONS.NOTIFICATIONS
         ) && (
           <NavLink to="/personnel-notifications">
-            Notifications
+            <Bell size={18} aria-hidden="true" />
+            <span>Notifications</span>
           </NavLink>
         )}
       </nav>

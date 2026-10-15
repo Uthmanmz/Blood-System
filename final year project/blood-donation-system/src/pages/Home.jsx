@@ -5,6 +5,7 @@ import '../styles/home.css';
 function Home() {
   return (
     <main>
+
       <section className="hero">
         <div className="hero-content">
           <p className="hero-small-text">

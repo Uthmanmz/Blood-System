@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import FindBlood from './pages/FindBlood';
+import SeekerFindBlood from './pages/SeekerFindBlood';
 import RequestBlood from './pages/RequestBlood';
 import BecomeDonor from './pages/BecomeDonor';
 import Feedback from './pages/Feedback';
@@ -106,6 +107,7 @@ const dashboardPages = [
   ['/admin-reports', AdminReports],
   ['/hospital-dashboard', HospitalDashboard],
   ['/seeker-dashboard', SeekerDashboard],
+  ['/seeker-find-blood', SeekerFindBlood],
   ['/request-blood', RequestBlood],
   ['/track-request', TrackRequest],
   ['/admin-hospitals', ManageHospitals],
@@ -132,6 +134,7 @@ const donorPages = new Set([
 
 const seekerPages = new Set([
   '/seeker-dashboard',
+  '/seeker-find-blood',
   '/request-blood',
   '/track-request',
   '/seeker-notifications',

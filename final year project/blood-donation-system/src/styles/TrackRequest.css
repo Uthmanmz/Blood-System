@@ -185,3 +185,53 @@
   margin-top: 6px;
   color: #555555;
 }
+
+.request-progress {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 25px;
+}
+
+.request-progress-step {
+  flex: 1 1 0;
+  min-width: 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+}
+
+.request-progress-step span {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d7dce3;
+  border-radius: 50%;
+  background: #f1f3f6;
+  color: #7b8794;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.request-progress-step p {
+  margin: 0;
+  color: #7b8794;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.request-progress-step--active span {
+  border-color: #c62828;
+  background: #c62828;
+  color: #ffffff;
+}
+
+.request-progress-step--active p {
+  color: #c62828;
+}

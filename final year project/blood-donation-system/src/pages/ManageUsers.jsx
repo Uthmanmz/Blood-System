@@ -1,31 +1,56 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import AdminSidebar from '../components/AdminSidebar';
-import { readDemoData } from '../services/demoStore';
+import { getHospitalAdmins } from '../services/organisationApi';
 
 import '../styles/adminDashboard.css';
 import '../styles/newPages.css';
 
 function ManageUsers() {
-  const [data] = useState(readDemoData);
+  const [administrators, setAdministrators] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
   const [search, setSearch] = useState('');
 
-  const assignments = data.hospitals.filter((hospital) => {
-    const hasAdministrator =
-      hospital.status === 'Approved' &&
-      hospital.adminName &&
-      hospital.adminEmail;
+  useEffect(() => {
+    let active = true;
 
+    getHospitalAdmins()
+      .then((response) => {
+        if (active) {
+          setAdministrators(response.data.administrators || []);
+          setError('');
+        }
+      })
+      .catch((requestError) => {
+        if (active) {
+          setError(
+            requestError.message ||
+              'Unable to load hospital administrators'
+          );
+        }
+      })
+      .finally(() => {
+        if (active) {
+          setLoading(false);
+        }
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const assignments = administrators.filter((administrator) => {
     const searchableText = [
-      hospital.name,
-      hospital.adminName || '',
-      hospital.adminEmail || '',
-    ].join(' ').toLowerCase();
+      administrator.hospital_name,
+      administrator.full_name,
+      administrator.email,
+    ]
+      .join(' ')
+      .toLowerCase();
 
-    return (
-      hasAdministrator &&
-      searchableText.includes(search.toLowerCase())
-    );
+    return searchableText.includes(search.toLowerCase());
   });
 
   return (
@@ -35,10 +60,9 @@ function ManageUsers() {
       <section className="admin-main">
         <h1>Hospital Administrators</h1>
 
-        <p className="workspace-notice">
-          These are administrator assignments saved in the frontend
-          preview. Real login accounts have not been created.
-        </p>
+        {error && (
+          <p className="workspace-notice">{error}</p>
+        )}
 
         <div className="management-filters">
           <input
@@ -50,7 +74,11 @@ function ManageUsers() {
         </div>
 
         <section className="workspace-panel">
-          {assignments.length === 0 ? (
+          {loading ? (
+            <p className="workspace-empty">
+              Loading hospital administrators...
+            </p>
+          ) : assignments.length === 0 ? (
             <p className="workspace-empty">
               No matching administrator assignments.
             </p>
@@ -62,16 +90,18 @@ function ManageUsers() {
                     <th>Administrator</th>
                     <th>Email</th>
                     <th>Hospital</th>
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
 
                 <tbody>
-                  {assignments.map((hospital) => (
-                    <tr key={hospital.id}>
-                      <td>{hospital.adminName}</td>
-                      <td>{hospital.adminEmail}</td>
-                      <td>{hospital.name}</td>
+                  {assignments.map((administrator) => (
+                    <tr key={administrator.id}>
+                      <td>{administrator.full_name}</td>
+                      <td>{administrator.email}</td>
+                      <td>{administrator.hospital_name}</td>
+                      <td>{administrator.hospital_status}</td>
                       <td>
                         <Link className="secondary-button" to="/admin-hospitals">
                           Manage Assignment

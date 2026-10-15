@@ -164,6 +164,18 @@
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
 }
 
+.admin-stat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  color: #c62828;
+  background-color: #fff1f2;
+}
+
 .admin-stat-card p {
   color: #666666;
 

@@ -15,6 +15,37 @@ input,
 select,
 textarea { font: inherit; }
 
+/*
+ * Base button styling. Class-based rules are more specific and
+ * still win; this only covers buttons that would otherwise fall
+ * back to raw browser defaults.
+ */
+button {
+  padding: 10px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #273449;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+button:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,

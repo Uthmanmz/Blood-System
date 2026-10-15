@@ -60,6 +60,16 @@
   box-sizing: border-box;
 }
 
+/*
+ * In the sidebar layout the content column should fill the
+ * space beside the nav. The 1100px centred cap only applies
+ * when workspace-content stands alone.
+ */
+.workspace-page:has(> .hospital-sidebar) > .workspace-content {
+  max-width: none;
+  margin: 0;
+}
+
 .hospital-sidebar {
   grid-column: 1;
   grid-row: 1 / -1;
@@ -102,6 +112,7 @@
 .hospital-menu-link {
   display: flex;
   align-items: center;
+  gap: 0.7rem;
   min-height: 2.75rem;
   padding: 0.65rem 0.75rem;
   border-radius: 0.5rem;
@@ -109,7 +120,16 @@
   font-weight: 650;
   line-height: 1.25;
   text-decoration: none;
-  justify-content: space-between;
+}
+
+.hospital-menu-link svg {
+  flex: 0 0 auto;
+  opacity: 0.85;
+}
+
+.hospital-menu-link:hover svg,
+.hospital-menu-link.active svg {
+  opacity: 1;
 }
 
 .hospital-menu-link:hover,
@@ -182,6 +202,20 @@
   max-width: 1100px;
   margin: auto;
   padding: 32px 24px;
+}
+
+/*
+ * The seeker portal opts into the donor sidebar layout, where
+ * content should fill the main column. The centred columns
+ * above are only wanted on the standalone workspace-page and
+ * application-page layouts used by the public and hospital
+ * pages.
+ */
+.donor-main .workspace-content,
+.donor-main .application-container {
+  max-width: none;
+  margin: 0;
+  padding: 0;
 }
 
 .workspace-notice {
@@ -606,6 +640,7 @@
 .organisation-menu-link {
   display: flex;
   align-items: center;
+  gap: 0.7rem;
   min-height: 46px;
   padding: 13px 12px;
   border-radius: 8px;
@@ -613,6 +648,16 @@
   color: #ddd;
   font-weight: 600;
   line-height: 1.5;
+}
+
+.organisation-menu-link svg {
+  flex: 0 0 auto;
+  opacity: 0.85;
+}
+
+.organisation-menu-link:hover svg,
+.organisation-menu-link.active svg {
+  opacity: 1;
 }
 
 .organisation-menu-link:hover,
@@ -789,6 +834,7 @@ details.workspace-panel > summary {
   justify-content: center;
   min-width: 24px;
   height: 24px;
+  margin-left: auto;
   padding: 0 5px;
   border-radius: 20px;
   background: #c62828;

@@ -11,12 +11,47 @@ import AdminSidebar
   from '../components/AdminSidebar';
 
 import {
+  BadgeCheck,
+  Ban,
+  Building2,
+  CheckCheck,
+  Clock,
+  Droplets,
+  Heart,
+  ShieldCheck,
+} from 'lucide-react';
+
+import {
   getOrganisationAnalytics,
   getOrganisationHospitals,
 } from '../services/organisationApi';
 
 import '../styles/adminDashboard.css';
 import '../styles/newPages.css';
+
+
+function StatCard({
+  icon: Icon,
+  label,
+  value,
+}) {
+  return (
+    <article className="admin-stat-card">
+
+      <span className="admin-stat-icon">
+        <Icon
+          size={20}
+          aria-hidden="true"
+        />
+      </span>
+
+      <p>{label}</p>
+
+      <h2>{value}</h2>
+
+    </article>
+  );
+}
 
 
 function AdminDashboard() {
@@ -120,103 +155,75 @@ function AdminDashboard() {
           <>
             <div className="admin-stat-grid">
 
-              <article className="admin-stat-card">
-                <p>Total Hospitals</p>
-                <h2>
-                  {
-                    analytics.hospitals
-                      .total
-                  }
-                </h2>
-              </article>
+              <StatCard
+                icon={Building2}
+                label="Total Hospitals"
+                value={
+                  analytics.hospitals.total
+                }
+              />
 
+              <StatCard
+                icon={ShieldCheck}
+                label="Approved Hospitals"
+                value={
+                  analytics.hospitals
+                    .approved
+                }
+              />
 
-              <article className="admin-stat-card">
-                <p>Approved Hospitals</p>
-                <h2>
-                  {
-                    analytics.hospitals
-                      .approved
-                  }
-                </h2>
-              </article>
+              <StatCard
+                icon={Clock}
+                label="Pending Hospitals"
+                value={
+                  analytics.hospitals
+                    .pending
+                }
+              />
 
+              <StatCard
+                icon={Ban}
+                label="Suspended Hospitals"
+                value={
+                  analytics.hospitals
+                    .suspended
+                }
+              />
 
-              <article className="admin-stat-card">
-                <p>Pending Hospitals</p>
-                <h2>
-                  {
-                    analytics.hospitals
-                      .pending
-                  }
-                </h2>
-              </article>
+              <StatCard
+                icon={Heart}
+                label="Total Donations"
+                value={
+                  analytics.donations.total
+                }
+              />
 
+              <StatCard
+                icon={BadgeCheck}
+                label="Completed Donations"
+                value={
+                  analytics.donations
+                    .completed
+                }
+              />
 
-              <article className="admin-stat-card">
-                <p>Suspended Hospitals</p>
-                <h2>
-                  {
-                    analytics.hospitals
-                      .suspended
-                  }
-                </h2>
-              </article>
+              <StatCard
+                icon={Droplets}
+                label="Total Blood Requests"
+                value={
+                  analytics.blood_requests
+                    .total
+                }
+              />
 
-
-              <article className="admin-stat-card">
-                <p>Total Donations</p>
-                <h2>
-                  {
-                    analytics.donations
-                      .total
-                  }
-                </h2>
-              </article>
-
-
-              <article className="admin-stat-card">
-                <p>
-                  Completed Donations
-                </p>
-
-                <h2>
-                  {
-                    analytics.donations
-                      .completed
-                  }
-                </h2>
-              </article>
-
-
-              <article className="admin-stat-card">
-                <p>
-                  Total Blood Requests
-                </p>
-
-                <h2>
-                  {
-                    analytics
-                      .blood_requests
-                      .total
-                  }
-                </h2>
-              </article>
-
-
-              <article className="admin-stat-card">
-                <p>
-                  Completed Requests
-                </p>
-
-                <h2>
-                  {
-                    analytics
-                      .blood_requests
-                      .completed
-                  }
-                </h2>
-              </article>
+              <StatCard
+                icon={CheckCheck}
+                label="Completed Requests"
+                value={
+                  analytics.blood_requests
+                    .completed
+                }
+              />
 
             </div>
 

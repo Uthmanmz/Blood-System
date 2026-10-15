@@ -10,6 +10,19 @@ import {
 } from 'react-router';
 
 import {
+  BarChart3,
+  Bell,
+  Building2,
+  CalendarDays,
+  ClipboardList,
+  Droplets,
+  HeartHandshake,
+  LayoutDashboard,
+  Package,
+  Users,
+} from 'lucide-react';
+
+import {
   getHospitalAdminHospital,
 } from '../services/hospitalAdminApi';
 
@@ -22,42 +35,52 @@ const links = [
   [
     '/hospital-dashboard',
     'Overview',
+    LayoutDashboard,
   ],
   [
     '/hospital-details',
     'Hospital Details',
+    Building2,
   ],
   [
     '/hospital-personnel',
     'Personnel',
+    Users,
   ],
   [
     '/hospital-donors',
     'Donors',
+    HeartHandshake,
   ],
   [
     '/hospital-appointments',
     'Appointments',
+    CalendarDays,
   ],
   [
     '/hospital-donations',
     'Donations',
+    Droplets,
   ],
   [
     '/hospital-inventory',
     'Inventory',
+    Package,
   ],
   [
     '/hospital-requests',
     'Requests',
+    ClipboardList,
   ],
   [
     '/hospital-notifications',
-    '🔔 Messages',
+    'Messages',
+    Bell,
   ],
   [
     '/hospital-reports',
     'Reports',
+    BarChart3,
   ],
 ];
 
@@ -126,7 +149,7 @@ function HospitalAdminNav() {
         aria-label="Hospital administration"
       >
         {links.map(
-          ([path, label]) => (
+          ([path, label, Icon]) => (
             <NavLink
               key={path}
               to={path}
@@ -139,6 +162,8 @@ function HospitalAdminNav() {
                   : 'hospital-menu-link'
               }
             >
+              <Icon size={18} aria-hidden="true" />
+
               <span>
                 {label}
               </span>
