@@ -1,0 +1,117 @@
+.navbar {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 4.75rem;
+  padding: 0.75rem clamp(1rem, 4vw, 3.75rem);
+  border-bottom: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+.navbar-logo {
+  flex: 0 0 auto;
+}
+
+.navbar-logo img {
+  display: block;
+  width: clamp(8.5rem, 15vw, 11.5rem);
+  height: auto;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+}
+
+.navbar-links > a,
+.portal-menu summary {
+  padding: 0.65rem 0.7rem;
+  border-radius: 0.45rem;
+  color: #334155;
+  font-size: 0.9rem;
+  font-weight: 650;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.navbar-links > a:hover,
+.navbar-links > a:focus-visible,
+.navbar-links > a.active,
+.portal-menu summary:hover,
+.portal-menu summary:focus-visible {
+  color: #991b1b;
+  background: #fff1f2;
+  outline: none;
+}
+
+.portal-menu {
+  position: relative;
+}
+
+.portal-menu summary {
+  list-style: none;
+  color: #fff;
+  background: #c62828;
+}
+
+.portal-menu summary::-webkit-details-marker { display: none; }
+
+.portal-menu > div {
+  position: absolute;
+  right: 0;
+  display: grid;
+  width: 13rem;
+  margin-top: 0.5rem;
+  padding: 0.45rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.6rem;
+  background: #fff;
+  box-shadow: 0 1rem 2rem rgba(15, 23, 42, 0.14);
+}
+
+.portal-menu > div a {
+  padding: 0.65rem;
+  border-radius: 0.4rem;
+  color: #334155;
+  text-decoration: none;
+}
+
+.portal-menu > div a:hover,
+.portal-menu > div a:focus-visible { background: #f8fafc; color: #991b1b; }
+
+.navbar-toggle {
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.45rem;
+  color: #991b1b;
+  background: #fff;
+  font-size: 1.35rem;
+}
+
+@media (max-width: 1050px) {
+  .navbar-toggle { display: inline-grid; place-items: center; }
+  .navbar-links {
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    left: 1rem;
+    display: none;
+    align-items: stretch;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0 0 0.75rem 0.75rem;
+    background: #fff;
+    box-shadow: 0 1rem 2rem rgba(15, 23, 42, 0.12);
+  }
+  .navbar-links.open { display: grid; }
+  .navbar-links > a { padding: 0.8rem; }
+  .portal-menu > div { position: static; width: auto; box-shadow: none; }
+}

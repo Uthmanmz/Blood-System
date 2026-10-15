@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Send Notification</h2>
+
+<input id="recipient" type="number" placeholder="Recipient User ID"><br><br>
+
+<select id="type">
+    <option>General</option>
+    <option>Donation Invitation</option>
+    <option>Appreciation</option>
+    <option>Seasonal Greeting</option>
+</select><br><br>
+
+<input id="subject" placeholder="Subject"><br><br>
+
+<textarea id="message" placeholder="Message"></textarea><br><br>
+
+<select id="channel">
+    <option>SMS</option>
+    <option>Email</option>
+    <option>Both</option>
+</select><br><br>
+
+<button onclick="sendNotification()">Send</button>
+
+<pre id="result"></pre>
+
+<script>
+async function sendNotification() {
+
+    const response = await fetch(
+        'http://localhost/blood-network-api/api/notifications/send.php',
+        {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                recipient_user_id:
+                    document.getElementById('recipient').value,
+                notification_type:
+                    document.getElementById('type').value,
+                subject:
+                    document.getElementById('subject').value,
+                message:
+                    document.getElementById('message').value,
+                delivery_channel:
+                    document.getElementById('channel').value
+            })
+        }
+    );
+
+    document.getElementById('result').textContent =
+        await response.text();
+}
+</script>
+
+</body>
+</html>

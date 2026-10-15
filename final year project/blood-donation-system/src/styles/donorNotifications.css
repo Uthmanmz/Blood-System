@@ -1,0 +1,68 @@
+.notifications-page {
+  min-height: 100vh;
+  display: flex;
+  background-color: #f8f9fa;
+}
+
+.notifications-main {
+  flex: 1;
+  padding: 50px;
+}
+
+.notifications-header {
+  margin-bottom: 35px;
+}
+
+.notifications-header > p {
+  color: #c62828;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.notifications-header h1 {
+  font-size: 36px;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.notifications-header span {
+  color: #666666;
+  line-height: 1.6;
+}
+
+.notifications-list {
+  max-width: 850px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.donor-notification-card {
+  background-color: white;
+  padding: 25px;
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+}
+
+.notification-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.notification-top h3 {
+  color: #111827;
+}
+
+.notification-top span {
+  color: #888888;
+  font-size: 13px;
+}
+
+.donor-notification-card > p {
+  color: #555555;
+  line-height: 1.7;
+}

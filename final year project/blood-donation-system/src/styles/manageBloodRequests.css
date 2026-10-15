@@ -1,0 +1,101 @@
+.blood-request-table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 25px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid #eeeeee;
+}
+
+.blood-request-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.blood-request-table th,
+.blood-request-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.blood-request-table th {
+  background-color: #f8f9fa;
+  color: #111827;
+  font-size: 14px;
+}
+
+.blood-request-table td {
+  color: #555555;
+  font-size: 14px;
+}
+
+.request-status {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.request-status.pending {
+  background-color: #fff4d6;
+  color: #8a6500;
+}
+
+.request-status.approved {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.request-status.rejected {
+  background-color: #ffebee;
+  color: #c62828;
+}
+.request-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.request-actions button {
+  padding: 7px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.approve-request-btn {
+  background-color: #2e7d32;
+  color: white;
+  border: 1px solid #2e7d32;
+}
+
+.reject-request-btn {
+  background-color: #c62828;
+  color: white;
+  border: 1px solid #c62828;
+}
+.request-processed {
+  font-size: 13px;
+  font-weight: 600;
+  color: #777777;
+}
+.fulfill-request-btn {
+  padding: 8px 12px;
+  background-color: #1565c0;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.fulfill-request-btn:hover {
+  background-color: #0d47a1;
+}
+
+.request-status.fulfilled {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}

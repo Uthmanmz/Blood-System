@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register Seeker</title>
+</head>
+<body>
+
+    <h2>Register Seeker</h2>
+
+    <input id="full_name" type="text" placeholder="Full Name">
+    <br><br>
+
+    <input id="email" type="email" placeholder="Email">
+    <br><br>
+
+    <input id="phone" type="text" placeholder="Phone Number">
+    <br><br>
+
+    <input id="password" type="password" placeholder="Password">
+    <br><br>
+
+    <input id="address" type="text" placeholder="Address">
+    <br><br>
+
+    <button onclick="registerSeeker()">
+        Register Seeker
+    </button>
+
+    <pre id="result"></pre>
+
+    <script>
+        async function registerSeeker() {
+
+            const data = {
+                full_name: document.getElementById('full_name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                password: document.getElementById('password').value,
+                address: document.getElementById('address').value
+            };
+
+            const response = await fetch(
+                'http://localhost/blood-network-api/api/seekers/register.php',
+                {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }
+            );
+
+            const result = await response.text();
+
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+
+</body>
+</html>

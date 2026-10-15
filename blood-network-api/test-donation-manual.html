@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record Manual Donation</title>
+</head>
+<body>
+
+    <h2>Record Manual Donation</h2>
+
+    <input
+        id="donor_id"
+        type="number"
+        placeholder="Donor ID"
+    >
+
+    <br><br>
+
+    <textarea
+        id="notes"
+        placeholder="Notes"
+    ></textarea>
+
+    <br><br>
+
+    <button onclick="recordDonation()">
+        Record Donation
+    </button>
+
+    <pre id="result"></pre>
+
+    <script>
+        async function recordDonation() {
+
+            const donorId =
+                document.getElementById('donor_id').value;
+
+            const notes =
+                document.getElementById('notes').value;
+
+            const response = await fetch(
+                'http://localhost/blood-network-api/api/donations/record-manual.php',
+                {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        donor_id: donorId,
+                        notes: notes
+                    })
+                }
+            );
+
+            const result = await response.text();
+
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personnel Status Test</title>
+</head>
+<body>
+
+    <h2>Update Personnel Status</h2>
+
+    <input
+        id="personnel_user_id"
+        type="number"
+        placeholder="Personnel User ID"
+    >
+    <br><br>
+
+    <select id="status">
+        <option value="Active">Active</option>
+        <option value="Disabled">Disabled</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="updateStatus()">
+        Update Status
+    </button>
+
+    <pre id="result"></pre>
+
+    <script>
+        async function updateStatus() {
+
+            const data = {
+                personnel_user_id:
+                    document.getElementById('personnel_user_id').value,
+
+                status:
+                    document.getElementById('status').value
+            };
+
+            const response = await fetch(
+                'http://localhost/blood-network-api/api/personnel/status.php',
+                {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }
+            );
+
+            const result = await response.text();
+
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+.not-found-page {
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  text-align: center;
+  background: #fafafa;
+}
+
+.not-found-panel {
+  max-width: 32rem;
+}
+
+.not-found-code {
+  margin: 0;
+  color: #c62828;
+  font-size: clamp(4rem, 12vw, 7rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.not-found-panel h2 {
+  margin-top: 1rem;
+}
+
+.not-found-panel > p:not(.not-found-code) {
+  margin: 1rem 0 1.5rem;
+  color: #5f6368;
+}
+
+.not-found-link {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.4rem;
+  color: #fff;
+  background: #c62828;
+  text-decoration: none;
+}
+
+.not-found-link:focus-visible,
+.not-found-link:hover {
+  background: #971d1d;
+}

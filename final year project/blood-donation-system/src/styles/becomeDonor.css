@@ -1,0 +1,104 @@
+.donor-page {
+  min-height: 70vh;
+  padding: 60px 7%;
+  background-color: #f8f9fa;
+}
+
+.donor-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.donor-header > p {
+  color: #c62828;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.donor-header h1 {
+  font-size: 40px;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.donor-header span {
+  color: #666666;
+}
+
+.donor-form {
+  max-width: 800px;
+  margin: auto;
+  padding: 35px;
+  background-color: white;
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+}
+
+.availability-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.availability-option input {
+  width: 18px;
+  height: 18px;
+}
+
+.availability-option label {
+  font-weight: 500;
+}
+
+.register-donor-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #c62828;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.register-donor-btn:hover {
+  background-color: #a91f1f;
+}
+
+.donor-message {
+  margin-top: 20px;
+  padding: 12px;
+  text-align: center;
+  background-color: #eaf7ea;
+  color: green;
+  border-radius: 6px;
+}
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Personnel</title>
+</head>
+<body>
+
+    <h2>Update Personnel</h2>
+
+    <input id="personnel_user_id" type="number" placeholder="Personnel User ID">
+    <br><br>
+
+    <input id="full_name" type="text" placeholder="Full Name">
+    <br><br>
+
+    <input id="email" type="email" placeholder="Email">
+    <br><br>
+
+    <input id="phone" type="text" placeholder="Phone Number">
+    <br><br>
+
+    <input id="job_title" type="text" placeholder="Job Title">
+    <br><br>
+
+    <input id="staff_number" type="text" placeholder="Staff Number">
+    <br><br>
+
+    <h3>Permissions</h3>
+
+    <label>
+        <input type="checkbox" value="MANAGE_DONORS" class="permission">
+        Manage Donors
+    </label>
+    <br>
+
+    <label>
+        <input type="checkbox" value="MANAGE_APPOINTMENTS" class="permission">
+        Manage Appointments
+    </label>
+    <br>
+
+    <label>
+        <input type="checkbox" value="RECORD_DONATIONS" class="permission">
+        Record Donations
+    </label>
+    <br>
+
+    <label>
+        <input type="checkbox" value="MANAGE_INVENTORY" class="permission">
+        Manage Inventory
+    </label>
+    <br>
+
+    <label>
+        <input type="checkbox" value="PROCESS_BLOOD_REQUESTS" class="permission">
+        Process Blood Requests
+    </label>
+    <br>
+
+    <label>
+        <input type="checkbox" value="SEND_NOTIFICATIONS" class="permission">
+        Send Notifications
+    </label>
+
+    <br><br>
+
+    <button onclick="updatePersonnel()">Update Personnel</button>
+
+    <pre id="result"></pre>
+
+    <script>
+        async function updatePersonnel() {
+
+            const permissions = [];
+
+            document.querySelectorAll('.permission:checked')
+                .forEach(function (checkbox) {
+                    permissions.push(checkbox.value);
+                });
+
+            const data = {
+                personnel_user_id:
+                    document.getElementById('personnel_user_id').value,
+
+                full_name:
+                    document.getElementById('full_name').value,
+
+                email:
+                    document.getElementById('email').value,
+
+                phone:
+                    document.getElementById('phone').value,
+
+                job_title:
+                    document.getElementById('job_title').value,
+
+                staff_number:
+                    document.getElementById('staff_number').value,
+
+                permissions: permissions
+            };
+
+            const response = await fetch(
+                'http://localhost/blood-network-api/api/personnel/update.php',
+                {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }
+            );
+
+            const result = await response.text();
+
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+
+</body>
+</html>

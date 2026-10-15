@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Donor Profile</title>
+</head>
+<body>
+
+    <h2>Update Donor Profile</h2>
+
+    <input id="full_name" type="text" placeholder="Full Name">
+    <br><br>
+
+    <input id="phone" type="text" placeholder="Phone Number">
+    <br><br>
+
+    <input id="address" type="text" placeholder="Address">
+    <br><br>
+
+    <button onclick="updateProfile()">
+        Update Profile
+    </button>
+
+    <pre id="result"></pre>
+
+    <script>
+        async function updateProfile() {
+
+            const data = {
+                full_name: document.getElementById('full_name').value,
+                phone: document.getElementById('phone').value,
+                address: document.getElementById('address').value
+            };
+
+            const response = await fetch(
+                'http://localhost/blood-network-api/api/donors/update-profile.php',
+                {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }
+            );
+
+            const result = await response.text();
+
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+
+</body>
+</html>

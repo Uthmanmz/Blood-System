@@ -1,0 +1,87 @@
+.about-page {
+  min-height: 70vh;
+  background-color: #f8f9fa;
+}
+
+.about-header {
+  text-align: center;
+  padding: 70px 7%;
+  background-color: #fff5f5;
+}
+
+.about-header > p {
+  color: #c62828;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.about-header h1 {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  font-size: 42px;
+  color: #111827;
+}
+
+.about-header span {
+  display: block;
+  max-width: 750px;
+  margin: auto;
+  color: #666666;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  padding: 70px 7%;
+}
+
+.about-text {
+  width: 60%;
+}
+
+.about-text h2 {
+  font-size: 32px;
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  color: #555555;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.about-card {
+  width: 35%;
+  background-color: white;
+  padding: 35px;
+  border-radius: 12px;
+  border: 1px solid #eeeeee;
+}
+
+.about-card h3 {
+  font-size: 26px;
+  color: #c62828;
+  margin-bottom: 15px;
+}
+
+.about-card p {
+  color: #555555;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.about-donor-btn {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #c62828;
+  color: white;
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-weight: 600;
+}

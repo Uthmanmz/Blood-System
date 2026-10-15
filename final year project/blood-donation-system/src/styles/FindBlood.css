@@ -1,0 +1,97 @@
+.find-blood-page {
+  min-height: 70vh;
+  padding: 60px 7%;
+  background-color: #f8f9fa;
+}
+
+.find-blood-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.find-blood-header > p {
+  color: #c62828;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.find-blood-header h1 {
+  font-size: 40px;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.find-blood-header span {
+  color: #666666;
+}
+
+.blood-search-box {
+  max-width: 550px;
+  margin: auto;
+  padding: 35px;
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid #eeeeee;
+}
+
+.blood-search-box label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.blood-search-box select {
+  width: 100%;
+  padding: 13px;
+  margin-bottom: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.blood-search-box button {
+  width: 100%;
+  padding: 13px;
+  background-color: #c62828;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.search-result {
+  margin-top: 30px;
+  padding: 25px;
+  text-align: center;
+  border-top: 1px solid #eeeeee;
+}
+
+.search-result h2 {
+  font-size: 34px;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.blood-available {
+  color: green;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.blood-unavailable {
+  color: #c62828;
+  font-weight: 700;
+}
+
+.request-link {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #c62828;
+  color: white;
+  padding: 11px 22px;
+  border-radius: 6px;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hospital Status</title>
+</head>
+<body>
+
+<h2>Update Hospital Status</h2>
+
+<input
+    id="hospital_id"
+    type="number"
+    placeholder="Hospital ID"
+>
+
+<br><br>
+
+<select id="status">
+    <option value="Approved">Approved</option>
+    <option value="Rejected">Rejected</option>
+    <option value="Suspended">Suspended</option>
+</select>
+
+<br><br>
+
+<textarea
+    id="reason"
+    placeholder="Reason if rejecting or suspending"
+></textarea>
+
+<br><br>
+
+<button onclick="updateStatus()">
+    Update Status
+</button>
+
+<pre id="result"></pre>
+
+<script>
+async function updateStatus() {
+
+    const response = await fetch(
+        'http://localhost/blood-network-api/api/hospitals/status.php',
+        {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                hospital_id:
+                    document.getElementById('hospital_id').value,
+
+                status:
+                    document.getElementById('status').value,
+
+                reason:
+                    document.getElementById('reason').value
+            })
+        }
+    );
+
+    const result = await response.text();
+
+    document.getElementById('result').textContent = result;
+}
+</script>
+
+</body>
+</html>

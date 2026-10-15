@@ -1,0 +1,71 @@
+.history-page {
+  min-height: 100vh;
+  display: flex;
+  background-color: #f8f9fa;
+}
+
+.history-main {
+  flex: 1;
+  padding: 50px;
+}
+
+.history-header {
+  margin-bottom: 35px;
+}
+
+.history-header > p {
+  color: #c62828;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.history-header h1 {
+  font-size: 36px;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.history-header span {
+  color: #666666;
+}
+
+.history-table-container {
+  background-color: white;
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.history-table th,
+.history-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.history-table th {
+  background-color: #f3f4f6;
+  color: #333333;
+  font-size: 14px;
+}
+
+.history-table td {
+  color: #555555;
+}
+
+.completed-status {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background-color: #eaf7ea;
+  color: green;
+  font-size: 13px;
+  font-weight: 600;
+}

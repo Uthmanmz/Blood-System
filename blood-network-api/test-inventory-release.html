@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Release Blood Unit</title>
+</head>
+<body>
+
+    <h2>Release Blood Unit</h2>
+
+    <input
+        id="blood_unit_id"
+        type="number"
+        placeholder="Blood Unit ID"
+    >
+
+    <br><br>
+
+    <button onclick="releaseUnit()">
+        Release Blood Unit
+    </button>
+
+    <pre id="result"></pre>
+
+    <script>
+        async function releaseUnit() {
+
+            const bloodUnitId =
+                document.getElementById('blood_unit_id').value;
+
+            const response = await fetch(
+                'http://localhost/blood-network-api/api/inventory/release.php',
+                {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        blood_unit_id: bloodUnitId
+                    })
+                }
+            );
+
+            const result = await response.text();
+
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Appointment</title>
+</head>
+<body>
+
+    <h2>Book Donation Appointment</h2>
+
+    <label>Appointment Date</label>
+    <br>
+    <input id="appointment_date" type="date">
+
+    <br><br>
+
+    <label>Appointment Time</label>
+    <br>
+    <input id="appointment_time" type="time">
+
+    <br><br>
+
+    <label>Note</label>
+    <br>
+    <textarea id="note" placeholder="Optional note"></textarea>
+    <br><br>
+
+<select id="delivery_channel">
+    <option value="SMS">SMS</option>
+    <option value="Email">Email</option>
+    <option value="Both">Both</option>
+</select>
+
+    <br><br>
+
+    <button onclick="bookAppointment()">
+        Book Appointment
+    </button>
+
+    <pre id="result"></pre>
+
+    <script>
+        async function bookAppointment() {
+
+            const data = {
+                appointment_date:
+                    document.getElementById('appointment_date').value,
+
+                appointment_time:
+                    document.getElementById('appointment_time').value,
+
+                note:
+                    document.getElementById('note').value,
+               delivery_channel:
+                     document.getElementById('delivery_channel').value
+                };
+
+            const response = await fetch(
+                'http://localhost/blood-network-api/api/appointments/book.php',
+                {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }
+            );
+
+            const result = await response.text();
+
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+
+</body>
+</html>

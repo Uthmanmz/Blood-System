@@ -1,0 +1,40 @@
+# ---- Secrets ----
+.env
+.env.*
+*.local.php
+blood-network-api/config/mail.local.php
+blood-network-api/config/sms.local.php
+
+# ---- Dependencies ----
+node_modules/
+vendor/
+
+# ---- Build output ----
+dist/
+dist-ssr/
+*.zip
+
+# ---- Browser profiles left behind by automated testing ----
+.chrome-verify/
+.edge-debug/
+.edge-debug-2/
+.edge-verify/
+.edge-verify-home/
+
+# ---- Logs ----
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---- Editors / OS ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

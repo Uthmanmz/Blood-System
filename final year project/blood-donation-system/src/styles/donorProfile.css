@@ -1,0 +1,142 @@
+.profile-page-layout {
+  min-height: 100vh;
+  display: flex;
+  background-color: #f8f9fa;
+}
+
+.profile-main {
+  flex: 1;
+  padding: 40px;
+  min-width: 0;
+}
+
+.profile-header {
+  margin-bottom: 35px;
+}
+
+.profile-header > p {
+  color: #c62828;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.profile-header h1 {
+  font-size: 36px;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.profile-header span {
+  color: #666666;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.profile-form {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: white;
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.profile-row {
+  display: flex;
+  gap: 20px;
+}
+
+.profile-group {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 20px;
+}
+
+.profile-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #222222;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.profile-group input,
+.profile-group select,
+.profile-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.profile-group input:focus,
+.profile-group select:focus,
+.profile-group textarea:focus {
+  border-color: #c62828;
+}
+
+.profile-group textarea {
+  resize: vertical;
+}
+
+.profile-save-btn {
+  width: 100%;
+  padding: 14px;
+  background-color: #c62828;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.profile-save-btn:hover {
+  background-color: #a91f1f;
+}
+
+.profile-message {
+  margin-top: 20px;
+  padding: 12px;
+  text-align: center;
+  color: green;
+  background-color: #eaf7ea;
+  border-radius: 6px;
+}
+
+@media (max-width: 900px) {
+  .profile-main {
+    padding: 25px;
+  }
+
+  .profile-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .profile-form {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-main {
+    padding: 20px;
+  }
+
+  .profile-header h1 {
+    font-size: 30px;
+  }
+
+  .profile-form {
+    padding: 20px;
+  }
+}

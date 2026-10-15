@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cancel Appointment</title>
+</head>
+<body>
+
+    <h2>Cancel Appointment</h2>
+
+    <input
+        id="appointment_id"
+        type="number"
+        placeholder="Appointment ID"
+    >
+
+    <br><br>
+
+    <button onclick="cancelAppointment()">
+        Cancel Appointment
+    </button>
+
+    <pre id="result"></pre>
+
+    <script>
+        async function cancelAppointment() {
+
+            const appointmentId =
+                document.getElementById('appointment_id').value;
+
+            const response = await fetch(
+                'http://localhost/blood-network-api/api/appointments/cancel.php',
+                {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        appointment_id: appointmentId
+                    })
+                }
+            );
+
+            const result = await response.text();
+
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+
+</body>
+</html>

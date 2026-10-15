@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donor Availability Test</title>
+</head>
+<body>
+
+    <h2>Donor Availability Test</h2>
+
+    <select id="available">
+        <option value="true">Available</option>
+        <option value="false">Not Available</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="updateAvailability()">
+        Update Availability
+    </button>
+
+    <pre id="result"></pre>
+
+    <script>
+        async function updateAvailability() {
+
+            const value =
+                document.getElementById('available').value === 'true';
+
+            const response = await fetch(
+                'http://localhost/blood-network-api/api/donors/availability.php',
+                {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        available_for_donation: value
+                    })
+                }
+            );
+
+            const result = await response.text();
+
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+
+</body>
+</html>

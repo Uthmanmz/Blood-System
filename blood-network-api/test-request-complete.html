@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Complete Blood Request</title>
+</head>
+<body>
+
+    <h2>Complete Blood Request</h2>
+
+    <input
+        id="request_id"
+        type="number"
+        placeholder="Request ID"
+    >
+
+    <br><br>
+
+    <button onclick="completeRequest()">
+        Complete Request
+    </button>
+
+    <pre id="result"></pre>
+
+    <script>
+        async function completeRequest() {
+
+            const requestId =
+                document.getElementById('request_id').value;
+
+            const response = await fetch(
+                'http://localhost/blood-network-api/api/blood-requests/complete.php',
+                {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        request_id: requestId
+                    })
+                }
+            );
+
+            const result = await response.text();
+
+            document.getElementById('result').textContent = result;
+        }
+    </script>
+
+</body>
+</html>

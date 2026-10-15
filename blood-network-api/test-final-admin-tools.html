@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Organisation Tools Test</title>
+</head>
+<body>
+
+<h2>Create Organisation Notice</h2>
+
+<input id="title" placeholder="Notice title"><br><br>
+
+<select id="notice_type">
+    <option>General</option>
+    <option>Important</option>
+    <option>Policy</option>
+    <option>Operational</option>
+</select><br><br>
+
+<textarea id="notice_message" placeholder="Notice message"></textarea><br><br>
+
+<button onclick="createNotice()">Send to All Approved Hospitals</button>
+
+<pre id="notice_result"></pre>
+
+<hr>
+
+<h2>Submit Feedback</h2>
+
+<input id="full_name" placeholder="Full name"><br><br>
+<input id="email" placeholder="Email"><br><br>
+<input id="phone" placeholder="Phone"><br><br>
+<input id="subject" placeholder="Subject"><br><br>
+<textarea id="feedback_message" placeholder="Feedback"></textarea><br><br>
+
+<button onclick="submitFeedback()">Submit Feedback</button>
+
+<pre id="feedback_result"></pre>
+
+
+<script>
+
+async function createNotice() {
+
+    const response = await fetch(
+        'http://localhost/blood-network-api/api/organisation/create-notice.php',
+        {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                title: document.getElementById('title').value,
+                notice_type: document.getElementById('notice_type').value,
+                message: document.getElementById('notice_message').value,
+                send_to_all: true
+            })
+        }
+    );
+
+    document.getElementById('notice_result').textContent =
+        await response.text();
+}
+
+
+async function submitFeedback() {
+
+    const response = await fetch(
+        'http://localhost/blood-network-api/api/feedback/submit.php',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                full_name: document.getElementById('full_name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('feedback_message').value
+            })
+        }
+    );
+
+    document.getElementById('feedback_result').textContent =
+        await response.text();
+}
+
+</script>
+
+</body>
+</html>

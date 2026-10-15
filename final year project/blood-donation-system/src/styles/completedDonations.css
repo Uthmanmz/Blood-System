@@ -1,0 +1,32 @@
+.completed-donations-table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 25px;
+
+  background-color: white;
+  border: 1px solid #eeeeee;
+  border-radius: 10px;
+}
+
+.completed-donations-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.completed-donations-table th,
+.completed-donations-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.completed-donations-table th {
+  background-color: #f8f9fa;
+  color: #111827;
+  font-size: 14px;
+}
+
+.completed-donations-table td {
+  color: #555555;
+  font-size: 14px;
+}

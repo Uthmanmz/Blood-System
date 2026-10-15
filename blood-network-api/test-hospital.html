@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Hospital Test</title>
+</head>
+<body>
+
+    <h2>Create Hospital Test</h2>
+
+    <input id="name" placeholder="Hospital Name"><br><br>
+    <input id="address" placeholder="Address"><br><br>
+    <input id="state" placeholder="State"><br><br>
+    <input id="city" placeholder="City"><br><br>
+    <input id="email" type="email" placeholder="Hospital Email"><br><br>
+    <input id="phone" placeholder="Hospital Phone"><br><br>
+    <input id="contact_name" placeholder="Contact Name"><br><br>
+    <input id="contact_email" type="email" placeholder="Contact Email"><br><br>
+
+    <button onclick="createHospital()">Create Hospital</button>
+
+    <pre id="result"></pre>
+
+    <script>
+        async function createHospital() {
+
+            const data = {
+                name: document.getElementById('name').value,
+                address: document.getElementById('address').value,
+                state: document.getElementById('state').value,
+                city: document.getElementById('city').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                contact_name: document.getElementById('contact_name').value,
+                contact_email: document.getElementById('contact_email').value
+            };
+
+            const response = await fetch(
+                'http://localhost/blood-network-api/api/hospitals/create.php',
+                {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                }
+            );
+
+            const result = await response.json();
+
+            document.getElementById('result').textContent =
+                JSON.stringify(result, null, 2);
+        }
+    </script>
+
+</body>
+</html>

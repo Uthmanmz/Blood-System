@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Test</title>
+</head>
+<body>
+
+    <h2>Organisation Admin Login Test</h2>
+
+    <input
+        type="email"
+        id="email"
+        placeholder="Email"
+    >
+
+    <br><br>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Password"
+    >
+
+    <br><br>
+
+    <button onclick="login()">Login</button>
+
+    <pre id="result"></pre>
+
+    <script>
+        async function login() {
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const response = await fetch(
+                'http://localhost/blood-network-api/api/auth/login.php',
+                {
+                    method: 'POST',
+
+                    credentials: 'include',
+
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    })
+                }
+            );
+
+            const data = await response.json();
+
+            document.getElementById('result').textContent =
+                JSON.stringify(data, null, 2);
+        }
+    </script>
+
+</body>
+</html>
